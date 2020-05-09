@@ -1,3 +1,6 @@
+from collections import defaultdict
+import urllib.request,urllib.parse
+import os
 import json
 class AutoVivification(dict):
  """生成嵌套字典"""
@@ -13,6 +16,8 @@ with open("data/test_data.json",'r',encoding='utf-8') as load_f:
      load_dict = json.load(load_f)
 for i in load_dict:#i为学生id j为case_id
     for j in load_dict[i]['cases']:
+        name = urllib.parse.unquote(os.path.basename(j['case_zip'])).split("_")[0]
+        dir[j['case_id']]["题目名称"]=name
         dir[j['case_id']]['题目类别']=j['case_type']
         dir[j['case_id']]['总提交次数'] = 0
         dir[j['case_id']]['有效提交次数'] = 0
