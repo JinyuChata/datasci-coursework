@@ -34,6 +34,6 @@ for i in load_dict:#i为学生id j为case_id
 for i in dir:#i为case_id
     dir[i]['方差']=dir[i]['方差']/dir[i]['总提交次数']#计算平均值
 sorted(dir)
-# print(dir)
-with open("data/题目难度分析V1.json",'w',encoding='utf-8') as ans:
+print(len(dir))
+with open("data/cases_analysis_source.json",'w',encoding='utf-8') as ans:
      json.dump(dir,ans,ensure_ascii=False,indent=4)
