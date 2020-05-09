@@ -1,7 +1,7 @@
 # datasci-coursework
 ## data文件夹
 用于存放原始数据
-- **case_test.json**   
+- **cases_test.json**   
 
   题目的测试用例个数及题目答案的程序行数,格式如下
 
@@ -15,18 +15,19 @@
   }
   ```
 
-- **case_analysis_source.json**
+- **cases_analysis_source.json**
 
   题目的简单数据收集，包括题目的类别，提交次数，有效提交次数（100分提交为有效提交），平均得分，方差，格式如下
 
   ```json
   {
-     "2179": {
-          "题目类别": "数组",
-          "总提交次数": 61,
-          "有效提交次数": 56,
-          "平均得分": 91.80327868852459,
-          "方差": 752.4858908895447
+     "2908": {
+          "题目名称": "单词分类",
+          "题目类别": "字符串",
+          "总提交次数": 487,
+          "有效提交次数": 99,
+          "平均得分": 31.498973305954827,
+          "方差": 1643.5436334428252
       },
       ...
   }
@@ -85,13 +86,13 @@
 
 获取数据的python脚本文件
 
-- **case_decompression.py**
+- **cases_decompression.py**
 
   解压缩cases文件夹中的文件，获取所有题目的测试用例个数和答案代码行数
 
-  输出为case_test.json文件
+  输出为cases_test.json文件
 
-- **case_download.py**
+- **cases_download.py**
 
   输入为cases_url.json,
 
@@ -103,8 +104,19 @@
 
   输入为test_data.json
 
-  获取每一道题目的类型，总提交次数，有效提交次数，平均得分，方差
+  获取每一道题目的名称，类型，总提交次数，有效提交次数，平均得分，方差
 
+  输出为cases_analysis_source.json
+
+- **cases_url.py**
   
-
+  输入为test_data.json
+  
+  获取所有题目的下载地址
+  
+  输出为cases_url.json
+  
+  
+  
+  
   
