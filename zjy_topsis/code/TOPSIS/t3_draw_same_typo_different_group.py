@@ -45,18 +45,18 @@ with open("../../分组/group-counts.json", 'r', encoding='UTF-8') as f:
 for typo in case_types:
     plt.figure(figsize=(20, 8), dpi=80)
     _plt_yticks = [i / 10 for i in range(21, 49)]
-    _plt_xticks = range(0, 69)
+    _plt_xticks = [i / 10 for i in range(10)]
 
     plt.title(typo, fontproperties=f_mgr)
 
-    plt.xticks(_plt_xticks[::5])
+    plt.xticks(_plt_xticks[::1])
     plt.yticks(_plt_yticks[::5])
 
     curr_typo_data = data_to_draw[typo]
     for group_id in group_converter:
         curr_grp_data = curr_typo_data[group_converter[group_id]]
         y = curr_grp_data.loc[:, 'AHP_score']
-        x = range(len(y))
+        x = [i / len(y) for i in range(len(y))]
         # 开始绘图
         plt.plot(x, y, label=group_converter[group_id])
         plt.legend()
