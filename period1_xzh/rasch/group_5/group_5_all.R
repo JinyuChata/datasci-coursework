@@ -7,7 +7,13 @@ library('ggplot2')
 install.packages('mirt')
 install.packages('ShinyItemAnalysis')
 library('ShinyItemAnalysis')
-
+install.packages("eRm")
+install.packages("ltm")
+install.packages("difR")
+library("eRm")
+library("ltm")
+library("difR")
+library('mirt')
 
 library('mirt')
 #读取数据
@@ -46,7 +52,15 @@ difficulty_param_searching=result_searching$xsi$xsi
 difficulty_param_sorting=result_sorting$xsi$xsi 
 difficulty_param_string=result_string$xsi$xsi 
 difficulty_param_tree=result_tree$xsi$xsi 
-
+print(mean(difficulty_param_all),digits=4)
+print(mean(difficulty_param_array),digits=4)
+print(mean(difficulty_param_graph),digits=4)
+print(mean(difficulty_param_linear),digits=4)
+print(mean(difficulty_param_number),digits=4)
+print(mean(difficulty_param_searching),digits=4)
+print(mean(difficulty_param_sorting),digits=4)
+print(mean(difficulty_param_string),digits=4)
+print(mean(difficulty_param_tree),digits=4)
 
 
 #学生能力
@@ -139,3 +153,24 @@ ggWrightMap(ability_param_all,difficulty_param_all,color = 'grey')
 windows()
 wrightMap(ability_param_all,difficulty_param_all,
           person.side = personDens,show.axis.logits = TRUE)
+
+
+
+
+#ERM
+res_rm_all = RM(resp_all)
+res_rm_array =RM(resp_array)
+res_rm_graph =RM(resp_graph1)
+res_rm_linear =RM(resp_linear)
+res_rm_number =RM(resp_number)
+res_rm_searching =RM(resp_searching)
+res_rm_sorting =RM(resp_sorting1)
+res_rm_string =RM(resp_string1)
+res_rm_tree =RM(resp_tree)
+print(res_rm_all)
+
+#personitemmap
+jpeg(file="personItemMap_group5_all.jpg",width=1800,height=1000)
+p=plotPImap(res_rm_all, cex.gen = .8)
+print(p)
+dev.off()

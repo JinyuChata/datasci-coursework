@@ -7,9 +7,14 @@ install.packages('mirt')
 install.packages('ShinyItemAnalysis')
 library('ShinyItemAnalysis')
 
-
+install.packages("eRm")
+install.packages("ltm")
+install.packages("difR")
+library("eRm")
+library("ltm")
+library("difR")
 library('mirt')
-#¶ÁÈ¡Êý¾Ý
+#ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 resp_all = read.csv("group1_results0_1.csv")
 resp_array = read.csv("group1_results_array_0_1.csv")
 resp_graph = read.csv("group1_results_graph_0_1.csv")
@@ -23,7 +28,7 @@ resp_tree = read.csv("group1_results_tree_0_1.csv")
 
 
 
-#ÅÜtam
+#ï¿½ï¿½tam
 result_all = tam(resp_all)
 result_array = tam(resp_array)
 result_graph = tam(resp_graph)
@@ -34,7 +39,7 @@ result_sorting = tam(resp_sorting)
 result_string = tam(resp_string)
 result_tree = tam(resp_tree)
 
-#»ñÈ¡ÄÑ¶È²ÎÊý
+#ï¿½ï¿½È¡ï¿½Ñ¶È²ï¿½ï¿½ï¿½
 
 difficulty_param_all=result_all$xsi$xsi 
 difficulty_param_array=result_array$xsi$xsi 
@@ -45,10 +50,18 @@ difficulty_param_searching=result_searching$xsi$xsi
 difficulty_param_sorting=result_sorting$xsi$xsi 
 difficulty_param_string=result_string$xsi$xsi 
 difficulty_param_tree=result_tree$xsi$xsi 
+print(mean(difficulty_param_all),digits=4)
+print(mean(difficulty_param_array),digits=4)
+print(mean(difficulty_param_graph),digits=4)
+print(mean(difficulty_param_linear),digits=4)
+print(mean(difficulty_param_number),digits=4)
+print(mean(difficulty_param_searching),digits=4)
+print(mean(difficulty_param_sorting),digits=4)
+print(mean(difficulty_param_string),digits=4)
+print(mean(difficulty_param_tree),digits=4)
 
 
-
-#Ñ§ÉúÄÜÁ¦
+#Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ability = tam.wle(result_all)
 ability_param_all=(tam.wle(result_all))$theta 
 ability_param_array=(tam.wle(result_array))$theta 
@@ -62,8 +75,8 @@ ability_param_tree=(tam.wle(result_tree))$theta
 
 
 
-#ICC Í¼Æ¬ ÕâÀïÍ¼Æ¬Á¿ÓÐµã´ó£¬Ò²ÓÐÖØ¸´
-ICC_all=plot(result_all)
+#ICC Í¼Æ¬ ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ò²ï¿½ï¿½ï¿½Ø¸ï¿?
+ICC_all=plot(result_all,type="items",export=FALSE)
 ICC_array=plot(result_array)
 ICC_graph=plot(result_graph)
 ICC_linear=plot(result_linear)
@@ -136,3 +149,88 @@ windows()
 wrightMap(ability_param_all,difficulty_param_all,
           person.side = personDens,show.axis.logits = TRUE)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ERM
+res_rm_all = RM(resp_all)
+res_rm_array =RM(resp_array)
+res_rm_graph =RM(resp_graph1)
+res_rm_linear =RM(resp_linear)
+res_rm_number =RM(resp_number)
+res_rm_searching =RM(resp_searching)
+res_rm_sorting =RM(resp_sorting1)
+res_rm_string =RM(resp_string1)
+res_rm_tree =RM(resp_tree)
+print(res_rm_all)
+
+#personitemmap
+jpeg(file="personItemMap_group1_all.jpg",width=1800,height=1000)
+p=plotPImap(res_rm_all, cex.gen = .8)
+print(p)
+dev.off()
+
+jpeg(file="personItemMap_group1_array.jpg",width=800,height=800)
+p=plotPImap(res_rm_array, cex.gen = .8)
+print(p)
+dev.off()
+
+jpeg(file="personItemMap_group1_graph.jpg",width=800,height=800)
+plotPImap(res_rm_graph, cex.gen = .8)
+print(p)
+dev.off()
+
+jpeg(file="personItemMap_group1_linear.jpg",width=800,height=800)
+plotPImap(res_rm_linear, cex.gen = .8)
+print(p)
+dev.off()
+
+jpeg(file="personItemMap_group1_number.jpg",width=800,height=800)
+plotPImap(res_rm_number, cex.gen = .8)
+print(p)
+dev.off()
+
+jpeg(file="personItemMap_group1_searching.jpg",width=800,height=800)
+plotPImap(res_rm_searching, cex.gen = .8)
+print(p)
+dev.off()
+
+jpeg(file="personItemMap_group1_sorting.jpg",width=800,height=800)
+plotPImap(res_rm_sorting, cex.gen = .8)
+print(p)
+dev.off()
+
+jpeg(file="personItemMap_group1_string.jpg",width=800,height=800)
+plotPImap(res_rm_string, cex.gen = .8)
+print(p)
+dev.off()
+
+jpeg(file="personItemMap_group1_tree.jpg",width=800,height=800)
+plotPImap(res_rm_tree, cex.gen = .8)
+print(p)
+dev.off()
+
+jpeg(file="personItemMap_group1_linear.jpg",width=800,height=800)
+plotPImap(res_rm_linear, cex.gen = .8)
+print(p)
+dev.off()
+
+
+ 

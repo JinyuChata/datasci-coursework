@@ -51,7 +51,7 @@ set_of_scores5=set()#分数的种类,为了好用jmetrik
 for user_id in group_people["g5"]:
     user_scores = {}
     for case in group_exercises["g5"]:
-        if int(case) in [2061,2127,2179]:
+        if int(case) in [2061,2127,2179,2307,2438,2701,2584,2206,2205]:
             continue
         user_scores[case] = 0
     result_group5[user_id]=user_scores
@@ -68,7 +68,7 @@ for user_id in group_people["g5"]:
         case = cases[j]
         type = case["case_type"]
         case_id=case["case_id"]
-        if int(case_id) in [2061,2127,2179,2205,2206]:
+        if int(case_id) in [2061,2127,2179,2307,2438,2701,2584,2206,2205]:
             continue
         uploads=case["upload_records"]
         final_score = case["final_score"]
