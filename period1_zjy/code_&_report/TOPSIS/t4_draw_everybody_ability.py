@@ -68,7 +68,7 @@ for user_id in user_info:
     ax1.fill(angles, data_radar, facecolor='g', alpha=0.2)  # 填充颜色
     ax1.set_rlabel_position(255)  # 设置极径标签位置
     ax1.set_title(user_id, fontproperties=f_mgr, fontsize=16)  # 设置标题
-    plt.savefig('./topsis_user_ability_radar/'+user_id+'_radar.jpg')
+    plt.savefig('./topsis_user_ability_radar/'+group_name+'/'+user_id+'_radar.jpg')
 
 
 
