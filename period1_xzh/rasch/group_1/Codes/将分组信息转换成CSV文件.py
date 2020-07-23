@@ -10,14 +10,14 @@ from pandas import DataFrame
 
 my_font = font_manager.FontProperties(fname=r'C:\Windows\Fonts\STSONG.TTF', size=10);
 #处理原始数据
-with open('../../group-results.json', 'r') as f:
+with open('../../Datas-all/group-results.json', 'r') as f:
     group_data = json.load(f)
-with open('../../group-tests.json', 'r') as f:
+with open('../../Datas-all/group-tests.json', 'r') as f:
     group_exercises = json.load(f)
 
 #处理原始数据
-datascisample = pd.read_json("../../../pca/test_data.json")
-# print(data)
+datascisample = pd.read_json("../../../pca/Datas/test_data.json")
+# print(Datas)
 group_people={
     "g1":[],
     "g2":[],

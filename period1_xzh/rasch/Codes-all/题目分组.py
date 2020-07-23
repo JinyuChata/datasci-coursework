@@ -15,9 +15,9 @@ from sklearn.preprocessing import StandardScaler
 
 my_font = font_manager.FontProperties(fname=r'C:\Windows\Fonts\STSONG.TTF', size=10);
 #处理原始数据
-with open('../group-results.json', 'r') as f:
+with open('../Datas-all/group-results.json', 'r') as f:
     group_data = json.load(f)
-# print(data)
+# print(Datas)
 groups={
     "g1":[],
     "g2":[],
@@ -30,7 +30,7 @@ for key in group_data:
     groups[group_data[key]].append(int(key))
 
 
-datascisample = pd.read_json("../../pca/test_data.json")
+datascisample = pd.read_json("../../pca/Datas/test_data.json")
 
 # print(datascisample)
 set1=set()
@@ -65,7 +65,7 @@ result_dict = {
     "g5":sorted(list(set5))
 
 }
-with open('../group-exercises.json', 'w', encoding='UTF-8') as f:
+with open('../Datas-all/group-exercises.json', 'w', encoding='UTF-8') as f:
     json.dump(result_dict, f, ensure_ascii=False, sort_keys=True, indent=4)
 
 
